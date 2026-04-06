@@ -1,9 +1,11 @@
+from urllib import response
 from annotated_types import Ge
 from groq import Groq
+import groq
 from backend.config import settings
 
 
-class Generator:
+class GroqClient:
     system_prompt = """Ты — помощник, который объясняет страхование подросткам 14-17 лет. 
 Объясняй просто, но уважительно — не занудно.
 
@@ -70,7 +72,7 @@ class Generator:
                     "content": f"{question}",
                 }
             ], 
-            model="llama-3.3-70b-versatile", 
+            model=settings.GROQ_GENERATION_MODEL, 
 
             temperature=0.5, 
             max_completion_tokens=1024, 
@@ -80,9 +82,11 @@ class Generator:
         )
 
         for chunk in stream:
-            print(chunk.choices[0].delta.content, end="")
+            if chunk.choices[0].delta.content: 
+                yield chunk.choices[0].delta.content
 
+groq_client = GroqClient()
 
 if __name__ == "__main__": 
-    gen = Generator()
+    gen = GroqClient()
     print(gen.generate("Что такое страховка?"))
