@@ -381,24 +381,50 @@ body {
 
 /* Comparison Panel */
 .comparison-panel {
-    max-width: 900px;
-    margin: 0 auto;
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    border: 4px solid #000;
+    display: flex;
+    flex-direction: column;
 }
+
+.comparison-head {
+    height: 30%;
+    font-size: 50px;
+    padding: 50px;
+    padding-bottom: 20px;
+    color: black;
+    font-weight: 650;
+    border-bottom: 1px solid ;
+}
+
+.under {
+    font-size: 17px;
+    color: gray; 
+    margin-top: 25px;
+}
+
 
 .comparison-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin: 40px 0;
+    grid-template-columns: 1fr 0.3fr;
+    align-items: center;
+    position: relative;
+}
+
+
+.comparison-cost {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    margin: 50px;
 }
 
 .comparison-card {
     background: #fff;
-    border: 3px solid #000;
-    border-radius: 16px;
-    padding: 40px;
     text-align: center;
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+.comparison-card h3 {
+    color: rgb(75, 74, 74)
 }
 
 .comparison-card.without {
@@ -410,7 +436,7 @@ body {
 }
 
 .comparison-price {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 900;
     margin: 20px 0;
 }

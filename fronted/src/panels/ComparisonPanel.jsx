@@ -2,75 +2,58 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import fall from '../assets/fall.svg'
+import cloud7 from '../assets/cloud7.svg'
+
 const ComparisonPanel = ({ onNext }) => {
   return (
-    <div className="panel comparison-panel">
+    <div className="panel comparison-panel" onClick={onNext}>
+
+      <div className="comparison-head">
+        <p>Ну что давай сравним?</p>
+        <p className='under'>Все зависит не от случая, а от того, готов ли ты к нему</p>
+      </div>
+      <div className="comparison-grid">
       <motion.div 
-        className="speech-bubble"
-        style={{ 
-          position: 'relative',
-          margin: '0 auto 30px',
-          display: 'inline-block',
-          left: '50%',
-          transform: 'translateX(-50%)'
-        }}
+        className="speech-bubble cloud7"
+        style={{top: -30, left: 300}}
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring" }}
       >
-        РАЗНИЦА ЕСТЬ...
+        <img src={cloud7}></img>
       </motion.div>
+        <div>
 
-      <div className="comparison-grid">
-        <motion.div 
-          className="comparison-card without"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <h3>Без страховки</h3>
-          <div className="comparison-price">15 000 ₽</div>
+          <div className='comparison-cost'>
+
+            <motion.div
+              className="comparison-card without"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <h3>Без страховки</h3>
+              <div className="comparison-price">15 000 ₽</div>
+            </motion.div>
+            <motion.div
+              className="comparison-card with"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <h3>Со страховкой</h3>
+              <div className="comparison-price">0-2 000 ₽</div>
+
+            </motion.div>
+          </div>
           <p style={{ color: '#666' }}>
             Ты не избежал ситуации, но ты можешь уменьшить расходы
           </p>
-        </motion.div>
-
-        <motion.div 
-          className="comparison-card with"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          <h3>Со страховкой</h3>
-          <div className="comparison-price">0-2 000 ₽</div>
-          <p style={{ color: '#666' }}>
-            Ты не избежал ситуации, но ты можешь уменьшить расходы
-          </p>
-        </motion.div>
+        </div>
+        <img src={fall} />
       </div>
 
-      <div className="nav-buttons">
-        <motion.button 
-          className="btn-secondary"
-          onClick={onNext}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          OK
-        </motion.button>
-        <motion.button 
-          className="btn-secondary"
-          onClick={onNext}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          Почему не бесплатно
-        </motion.button>
-      </div>
     </div>
   );
 };
