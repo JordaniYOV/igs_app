@@ -301,7 +301,7 @@ body {
 
 /* Options Panel */
 .options-panel {
-    max-width: 800px;
+    
     margin: 0 auto;
 }
 
@@ -314,45 +314,60 @@ body {
 .option-card {
     background: #fff;
     border: 3px solid #000;
-    border-radius: 16px;
-    padding: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     cursor: pointer;
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
     box-shadow: 6px 6px 0 #000;
     display: flex;
     align-items: center;
-    gap: 30px;
+    height: 180px;
+    position: relative;
 }
 
-.option-card:hover {
+.option-card img {
+    transform: translateY(-17px)
+}
+
+#self {
+    width: 700px;
+    gap: 20%
+}
+
+#parents { 
+    width: 875px;
+    gap: 5%
+}
+
+#insurance {
+    width: 1050px;
+    gap: 10%
+}
+
+/* .option-card:hover {
     transform: translate(-4px, -4px);
     box-shadow: 10px 10px 0 #000;
+} */
+
+.option-content h1 {
+    font-size: 50px;
+    color: #000;
+    justify-self: start;
+    margin-top: -20px;
 }
 
-.option-avatar {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    border-radius: 50%;
-    border: 3px solid #000;
-    flex-shrink: 0;
-}
-
-.option-content h3 {
-    font-size: 28px;
-    margin-bottom: 8px;
-}
 
 .option-content p {
-    color: #666;
-    font-size: 16px;
+    color: #000000;
+    font-size: 20px;
+    justify-self: start;
+    font-weight: 650;
 }
 
 /* Insurance Panel */
 .insurance-panel {
     text-align: center;
     padding: 60px 20px;
+    position: relative;
 }
 
 .insurance-icon {
