@@ -18,7 +18,7 @@ const StoryPanel = ({ onNext }) => {
   ];
 
   return (
-    <div className="panel story-panel">
+    <div className="panel story-panel" onClick={onNext}>
       <div className="comic-panel">
         <motion.div
           className="comic-image"
@@ -50,17 +50,6 @@ const StoryPanel = ({ onNext }) => {
           <p>Карман рвется</p>
           <p>Телефон выпадает и разбивается</p>
         </motion.div>
-        <motion.button
-          className="btn-primary comic-btn pulsing"
-          onClick={onNext}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 2, type: "spring" }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          И что дальше
-        </motion.button>
       </div>
 
 

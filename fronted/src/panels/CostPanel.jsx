@@ -14,7 +14,7 @@ const CostPanel = ({ onNext }) => {
   ];
 
   return (
-    <div className="panel cost-panel">
+    <div className="panel cost-panel" onClick={onNext}>
       <img src={phone} />
       <div>
         <div className="cost-header">
@@ -63,19 +63,6 @@ const CostPanel = ({ onNext }) => {
             <span>15 000₽</span>
           </div>
         </motion.div>
-
-        <motion.button
-          className="btn-primary comic-btn pulsing"
-          onClick={onNext}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 2, type: "spring" }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          style={{ top: 60 }}
-        >
-          Какие варианты
-        </motion.button>
       </div>
     </div>
   );

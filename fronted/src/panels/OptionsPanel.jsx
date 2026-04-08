@@ -6,6 +6,8 @@ import me from '../assets/me.svg'
 import parents from '../assets/parents.svg'
 import insurance from '../assets/insurance.svg'
 import cloud4 from '../assets/cloud4.svg'
+import cloud5 from '../assets/cloud5.svg'
+import cloud6 from '../assets/cloud6.svg'
 
 const OptionsPanel = ({ onOptionSelect, onNext }) => {
   const options = [
@@ -14,31 +16,35 @@ const OptionsPanel = ({ onOptionSelect, onNext }) => {
       title: 'Я',
       subtitle: 'из своих карманных денег',
       avatar: me,
-      speech: 'МОЖНО НЕ НАДО...'
+      pos: 700,
+      icon: cloud4
+
     },
     {
       id: 'parents',
       title: 'Родители',
       subtitle: 'помогут или заплатят',
       avatar: parents,
-      speech: null
+      pos: -650,
+      icon: cloud5
     },
     {
       id: 'insurance',
       title: 'Страховка',
       subtitle: 'если она есть',
       avatar: insurance,
-      speech: null
+      pos: 700,
+      icon: cloud6
     }
   ];
 
   return (
-    <div className="panel options-panel">
+    <div className="panel options-panel" onClick={onNext}>
       {options.map((option, index) => (
         <motion.div
           key={option.id}
-          id={option.id}
           className="option-card"
+          id={option.id}
           // onClick={() => onOptionSelect(option.id)}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,21 +52,17 @@ const OptionsPanel = ({ onOptionSelect, onNext }) => {
         // whileHover={{ scale: 1.02 }}
         // whileTap={{ scale: 0.98 }}
         >
-          {option.speech && (
-            <motion.div
-              className="speech-bubble"
-              style={{
-                position: 'absolute',
-                top: -40,
-                right: -280,
-              }}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              <img src={cloud4}></img>
-            </motion.div>
-          )}
+
+          <motion.div
+            className="speech-bubble"
+            style={{ left: option.pos }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <img src={option.icon}></img>
+          </motion.div>
+
           <img src={option.avatar}></img>
           <div className="option-content">
             <h1>{option.title}</h1>
@@ -69,16 +71,15 @@ const OptionsPanel = ({ onOptionSelect, onNext }) => {
         </motion.div>
       ))}
       <motion.button
-        className="btn-primary comic-btn pulsing"
-        onClick={onNext}
+        className="btn-primary option-btn pulsing"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.6, type: "spring" }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        style={{bottom: 90}}
+        style={{ bottom: 120, left: 400}}
       >
-       Узнать нюансы
+        Посмотреть другое
       </motion.button>
     </div>
   );

@@ -193,7 +193,6 @@ body {
 .story-text {
     padding: 30px;
     padding-left: 40px;
-    padding-bottom: 50px;
     font-size: 25px;
     font-weight: 700;
     color: #000;
@@ -262,8 +261,8 @@ body {
 
 
 .cost-header {
-    margin-top: 50px;
-    margin-bottom: 15px;
+    margin-top: 70px;
+    margin-bottom: 30px;
     position: relative;
 }
 
@@ -318,29 +317,20 @@ body {
     cursor: pointer;
     /* transition: all 0.3s; */
     box-shadow: 6px 6px 0 #000;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
     align-items: center;
     height: 180px;
     position: relative;
+
 }
 
 .option-card img {
-    transform: translateY(-17px)
+    transform: translateY(-40px)
 }
 
-#self {
-    width: 700px;
-    gap: 20%
-}
-
-#parents { 
-    width: 875px;
-    gap: 5%
-}
-
-#insurance {
-    width: 1050px;
-    gap: 10%
+#parents img {
+    transform: translateX(730px) translateY(-40px);
 }
 
 /* .option-card:hover {
@@ -348,19 +338,24 @@ body {
     box-shadow: 10px 10px 0 #000;
 } */
 
+
 .option-content h1 {
     font-size: 50px;
     color: #000;
-    justify-self: start;
-    margin-top: -20px;
+    margin-top: -50px;
 }
 
 
 .option-content p {
     color: #000000;
     font-size: 20px;
-    justify-self: start;
     font-weight: 650;
+}
+
+.option-btn {
+    background-color: white;
+    padding: 10px;
+    color: black
 }
 
 /* Insurance Panel */
