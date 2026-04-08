@@ -2,62 +2,93 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import Cloud1 from '../assets/Cloud1.svg'
+import boy from '../assets/boy.svg'
+import bike from '../assets/bike.svg'
+import cloud2 from '../assets/cloud2.svg'
+import phoneicon from '../assets/phone_icon.svg'
+import cloudicon from '../assets/cloud_icon.svg'
+import iceicon from '../assets/ice_icon.svg'
+
 const StoryPanel = ({ onNext }) => {
   const choices = [
-    { id: 'pocket', icon: '📱', text: 'Уберу телефон в карман' },
-    { id: 'rain', icon: '🌧️', text: 'Пошел дождь' },
-    { id: 'slippery', icon: '🧊', text: 'На улице скользко' },
+    { id: 'pocket', icon: phoneicon, text: 'Уберу телефон в карман' },
+    { id: 'rain', icon: cloudicon, text: 'Пошел дождь' },
+    { id: 'slippery', icon: iceicon, text: 'На улице скользко' },
   ];
 
   return (
     <div className="panel story-panel">
       <div className="comic-panel">
-        <div className="comic-image">
-          <div className="speech-bubble" style={{ top: 20, left: 20 }}>
-            ЖИЗЛ...
-          </div>
-          <div className="speech-bubble" style={{ bottom: 80, right: 20 }}>
-            ПОЧТИ ПОЛУЧИЛОСЬ...
-          </div>
-          {/* Здесь можно добавить изображение */}
-          <div style={{ 
-            position: 'absolute', 
-            bottom: 0, 
-            left: '50%', 
-            transform: 'translateX(-50%)',
-            width: '60%',
-            height: '80%',
-            background: 'url(/api/placeholder/400/320) center/contain no-repeat'
-          }} />
-        </div>
-        <div className="story-text">
-          <strong>Утро. Ты идешь в школу</strong>
-          <p style={{ marginTop: 10 }}>Ты убираешь телефон в карман</p>
+        <motion.div
+          className="comic-image"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, type: "spring" }}>
+          <img src={bike}></img>
+          <motion.div
+            className="speech-bubble cloud1"
+            style={{ top: -30, left: 100 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{delay: 1.5, type: "spring"}}>
+            <img src={Cloud1}></img>
+            <div>ЖИЗА...</div>
+          </motion.div>
+          <motion.div className="story-text on-image"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1, type: "spring" }}>
+            Утро. Ты идешь в школу
+          </motion.div>
+        </motion.div>
+        <motion.div className="story-text"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 2, type: "spring" }}>
+          <p>Ты убираешь телефон в карман</p>
           <p>Карман рвется</p>
           <p>Телефон выпадает и разбивается</p>
-        </div>
+        </motion.div>
+        <motion.button
+          className="btn-primary comic-btn pulsing"
+          onClick={onNext}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 2, type: "spring" }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          И что дальше
+        </motion.button>
       </div>
 
-      <div className="choices-panel">
-        <motion.div 
-          className="speech-bubble floating"
-          style={{ position: 'relative', marginBottom: 20, alignSelf: 'flex-end' }}
-        >
-          КТО БУДЕТ ПЛАТИТЬ???
+
+      <div className="comic-panel-2">
+        <motion.div className='comic-image'
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.5, type: "spring" }}>
+          <img src={boy}></img>
+          <motion.div className="speech-bubble cloud2" style={{ top: 330, right: 300 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 2, type: "spring" }}>
+            <img src={cloud2}></img>
+            <div>ПОЧТИ ПОЛУЧИЛОСЬ...</div>
+          </motion.div>
         </motion.div>
-        
         {choices.map((choice, index) => (
           <motion.button
             key={choice.id}
             className="choice-btn"
-            onClick={onNext}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ scale: 1.02, x: -5 }}
-            whileTap={{ scale: 0.98 }}
+            transition={{ delay: 1.7 + index * 0.2 }}
+          // whileHover={{ scale: 1.02, x: -5 }}
+          // whileTap={{ scale: 0.98 }}
           >
-            <span className="choice-icon">{choice.icon}</span>
+            <img src={choice.icon} ></img>
             <span>{choice.text}</span>
           </motion.button>
         ))}
