@@ -2,16 +2,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import cloud8 from '../assets/cloud8.svg'
+import health from '../assets/health.svg'
+import res from '../assets/res.svg'
+import stuff from '../assets/stuff.svg'
+
 const SituationsPanel = ({ onNext }) => {
   const situations = [
-    { title: 'Здоровье', icon: '🏥' },
-    { title: 'Ответственность', icon: '🚗' },
-    { title: 'Имущество', icon: '📱' },
+    { title: 'Здоровье', icon: health, txt1: "Занятия спортом", txt2: "заболел в другом городе", txt3: "упал с высоты"},
+    { title: 'Ответственность', icon: res, txt1: "залил соседей", txt2: "поарапал чужую машину", txt3: "разбил стекло"},
+    { title: 'Имущество', icon: stuff, txt1: "потерял наушники", txt2: "утопил телефон в бассейне", txt3: "украли велосипед"},
   ];
 
   return (
     <div className="panel situations-panel">
-      <motion.div 
+      {/* <motion.div 
         className="speech-bubble"
         style={{ 
           position: 'absolute',
@@ -23,14 +28,11 @@ const SituationsPanel = ({ onNext }) => {
         transition={{ type: "spring" }}
       >
         ОКАЙ...
-      </motion.div>
-
-      <h2 style={{ fontSize: 36, textAlign: 'center', marginBottom: 10 }}>
-        Ситуации, которые стоят денег
-      </h2>
-      <p style={{ textAlign: 'center', color: '#666', marginBottom: 40 }}>
-        В жизни случается разное. Но можно подобрать подходящую страховку
-      </p>
+      </motion.div> */}
+      <div className="situation-head">
+        <p>Ситуации, которые стоят</p>
+        <p>денег</p>
+      </div>
 
       <div className="situations-grid">
         {situations.map((sit, index) => (
@@ -43,15 +45,13 @@ const SituationsPanel = ({ onNext }) => {
             transition={{ delay: index * 0.15 }}
             whileHover={{ y: -10 }}
           >
-            <div className="situation-image" style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: 60
-            }}>
-              {sit.icon}
+            <div className="situation-title sit-head">{sit.title}</div>
+            <img src={sit.icon}></img>
+            <div className="situation-title">
+                <p>{sit.txt1}</p>
+                <p>{sit.txt2}</p>
+                <p>{sit.txt3}</p>
             </div>
-            <div className="situation-title">{sit.title}</div>
           </motion.div>
         ))}
       </div>
