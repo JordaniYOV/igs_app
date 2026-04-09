@@ -24,11 +24,11 @@ function App() {
         { id: 'story', component: StoryPanel },
         { id: 'cost', component: CostPanel },
         { id: 'options', component: OptionsPanel },
-        { id: 'insurance', component: InsurancePanel },
         { id: 'comparison', component: ComparisonPanel },
         { id: 'situations', component: SituationsPanel },
         { id: 'conditions', component: ConditionsPanel },
         { id: 'franchise', component: FranchisePanel },
+         { id: 'insurance', component: InsurancePanel },
     ];
 
     const handleNext = (stepIndex) => {

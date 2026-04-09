@@ -16,19 +16,18 @@ const SituationsPanel = ({ onNext }) => {
 
   return (
     <div className="panel situations-panel">
-      {/* <motion.div 
+      <motion.div 
         className="speech-bubble"
         style={{ 
-          position: 'absolute',
-          right: 40,
-          top: 20
+          right: 10,
+          top: 50
         }}
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring" }}
       >
-        ОКАЙ...
-      </motion.div> */}
+        <img src={cloud8}/>
+      </motion.div>
       <div className="situation-head">
         <p>Ситуации, которые стоят</p>
         <p>денег</p>

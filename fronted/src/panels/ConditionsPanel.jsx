@@ -2,45 +2,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import cloud9 from '../assets/cloud9.svg'
+import vandal from '../assets/vandal.svg'
+import park from '../assets/park.svg'
+import deal from '../assets/deal.svg'
+'✓'
 const ConditionsPanel = ({ onNext }) => {
   const conditions = [
     {
-      icon: '✓',
+      icon: vandal,
       title: 'Это случайность',
       desc: 'ущерб причинен не специально'
     },
     {
-      icon: '✓',
+      icon: park,
       title: 'Нет нарушений',
       desc: 'например, грубой неосторожности'
     },
     {
-      icon: '✓',
+      icon: deal,
       title: 'Подходят условия',
       desc: 'случай прописан в договоре'
     }
   ];
 
   return (
-    <div className="panel conditions-panel">
+    <div className="panel conditions-panel" onClick={onNext}>
       <motion.div 
         className="speech-bubble"
         style={{ 
-          position: 'absolute',
-          right: 20,
-          top: 20
+          right: -55,
+          top: -30
         }}
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring" }}
       >
-        ВОТ ТУТ НЮАНС..
+        <img src={cloud9} />
       </motion.div>
 
-      <h2 style={{ fontSize: 36, textAlign: 'center', marginBottom: 10 }}>
+      <h2 className='cond-head'>
         Когда страховка сработает
       </h2>
-      <p style={{ textAlign: 'center', color: '#666', marginBottom: 40 }}>
+      <p className='cond-min'>
         Страховка — это не магия. Она работает при соблюдении определенных условий
       </p>
 
@@ -54,35 +58,18 @@ const ConditionsPanel = ({ onNext }) => {
             transition={{ delay: index * 0.15 }}
             whileHover={{ scale: 1.05 }}
           >
-            <motion.div 
-              className="condition-icon"
-              style={{
-                background: '#22c55e',
-                color: 'white'
-              }}
+            <motion.img 
               initial={{ rotate: -180 }}
               animate={{ rotate: 0 }}
               transition={{ delay: 0.3 + index * 0.1 }}
+              src={cond.icon}
             >
-              {cond.icon}
-            </motion.div>
-            <h3 style={{ marginBottom: 10 }}>{cond.title}</h3>
-            <p style={{ color: '#666', fontSize: 14 }}>{cond.desc}</p>
+            </motion.img>
+            <h3 style={{ color: '#000000', marginBottom: 10 }}>{cond.title}</h3>
+            <p style={{ color: '#000000', fontSize: 14 }}>{cond.desc}</p>
           </motion.div>
         ))}
       </div>
-
-      <motion.button 
-        className="btn-secondary"
-        onClick={onNext}
-        style={{ margin: '40px auto', display: 'block' }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        whileHover={{ scale: 1.05 }}
-      >
-        Как оформить
-      </motion.button>
     </div>
   );
 };

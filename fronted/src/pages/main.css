@@ -361,22 +361,46 @@ body {
 /* Insurance Panel */
 .insurance-panel {
     text-align: center;
-    padding: 60px 20px;
+    position: relative;
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    border: 4px solid #000;
+}
+
+.insurance-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2%;
+    margin-bottom: 50px;
+}
+
+.signup-step {
+    box-shadow: 5px 5px rgba(0, 0, 0, 1);
+    border: 5px solid #000;
     position: relative;
 }
 
-.insurance-icon {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    border-radius: 50%;
-    margin: 0 auto 30px;
-    border: 4px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    box-shadow: 6px 6px 0 #000;
+.signup-step h3{
+    color: black; 
+    font-size: 20px;
+    padding: 30px;
+    padding-left: 40px; 
+    padding-right: 0;
+}
+
+.signup-step p {
+    color: black;
+    padding: 20px; 
+    padding-left: 50px; 
+    padding-right: 50px
+}
+
+#By h3 { 
+    padding-bottom: 17px;
+}
+
+.step-img {
+    width: 100%;
 }
 
 /* Comparison Panel */
@@ -453,10 +477,10 @@ body {
 .situations-panel {
     box-shadow: 2px 2px rgba(0, 0, 0, 1);
     border: 4px solid #000;
+    position: relative;
 }
 
 .situation-head {
-    border-bottom: 1px solid;
     color: black;
     padding: 20px;
     padding-bottom: 50px;
@@ -509,6 +533,23 @@ body {
     font-size: 25px;
 }
 /* Conditions Panel */
+.conditions-panel {
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    border: 4px solid #000;
+    position: relative;
+}
+
+.cond-head { 
+    font-size: 50px;
+    color: black;
+    padding-top: 30px;
+}
+
+.cond-min {
+    font-size:15px;
+    color:black
+}
+
 .conditions-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -516,13 +557,8 @@ body {
     margin: 40px 0;
 }
 
-.condition-card {
-    background: #fff;
-    border: 3px solid #000;
-    border-radius: 16px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 4px 4px 0 #000;
+.condition-card img {
+    width: 100%
 }
 
 .condition-icon {
@@ -540,8 +576,35 @@ body {
 
 /* Franchise Panel */
 .franchise-panel {
-    max-width: 1000px;
-    margin: 0 auto;
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    border: 4px solid #000;
+    position: relative;
+}
+
+.fr-cond-grid { 
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+}
+
+.fr-cond-plus {
+    box-shadow: 5px 5px rgba(0, 0, 0, 1);
+    border: 4px solid #000;
+    font-size: 23px;
+    color: black;
+    font-weight: 650;
+    margin: 25px;
+    align-content: center;
+}
+
+.fr-cond-plus p {
+    margin-top: 15px
+}
+
+.fr-head-grid {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 0.3fr;
+    position: relative;
+    bottom: 20px
 }
 
 .franchise-visual {
@@ -554,60 +617,49 @@ body {
 
 .franchise-chart {
     height: 200px;
+    width: 200px;
+    margin-left: 25px; 
+    margin-right: 25px;
     display: flex;
     align-items: flex-end;
-    gap: 20px;
-    padding: 20px;
-    background: #f9f9f9;
-    border: 3px solid #000;
-    border-radius: 12px;
+    border-bottom: 5px solid black;
+}
+
+#bar40 {
+    background: linear-gradient(to top, #AD676A, #E29997);
+}
+
+#bar70 {
+    background: linear-gradient(to top, #E2943A, #F0BE4F);
+}
+
+#bar100 {
+    background: linear-gradient(to top, #367F97, #3F9BB5);
 }
 
 .chart-bar {
+    margin-left: 5px;
+    margin-right: 5px;
     flex: 1;
     background: linear-gradient(to top, #4f46e5, #818cf8);
-    border-radius: 8px 8px 0 0;
     border: 2px solid #000;
-    border-bottom: none;
     transition: all 0.3s;
 }
 
-.piggy-bank {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(135deg, #ffc0cb 0%, #ff69b4 100%);
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    border: 4px solid #000;
-    position: relative;
-    box-shadow: 6px 6px 0 #000;
-}
-
 .franchise-list {
-    background: #fff;
-    border: 3px solid #000;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 4px 4px 0 #000;
+    margin: 20px;
 }
 
 .franchise-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+    justify-content: center;
+    padding: 2%;
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
 }
 
-.franchise-item:last-child {
-    border-bottom: none;
-}
-
-.franchise-color {
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
-    border: 2px solid #000;
-}
 
 /* Кнопки навигации */
 .nav-buttons {
