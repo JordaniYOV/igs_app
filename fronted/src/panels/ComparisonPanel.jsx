@@ -4,8 +4,33 @@ import { motion } from 'framer-motion';
 
 import fall from '../assets/fall.svg'
 import cloud7 from '../assets/cloud7.svg'
+import doc from '../assets/doc.svg'
+import mech from '../assets/mech.svg'
 
-const ComparisonPanel = ({ onNext }) => {
+const ComparisonPanel = ({ onNext, selectedOption }) => {
+  let story_let;
+  if (selectedOption === 1) {
+    story_let = {
+      img: fall, 
+      cost: 15000, 
+      ins: 2000,
+    }
+  } else if (selectedOption === 2) {
+    story_let = {
+      img: doc,
+      cost: 32500, 
+      ins: 10000,
+    }
+  } else if (selectedOption === 3) {
+    story_let = {
+      img: mech,
+      cost: 45000, 
+      ins: 10000,
+    }
+  }
+
+    const story = story_let
+
   return (
     <div className="panel comparison-panel" onClick={onNext}>
 
@@ -34,7 +59,7 @@ const ComparisonPanel = ({ onNext }) => {
               transition={{ delay: 0.2 }}
             >
               <h3>Без страховки</h3>
-              <div className="comparison-price">15 000 ₽</div>
+              <div className="comparison-price">{story.cost} ₽</div>
             </motion.div>
             <motion.div
               className="comparison-card with"
@@ -43,7 +68,7 @@ const ComparisonPanel = ({ onNext }) => {
               transition={{ delay: 0.4 }}
             >
               <h3>Со страховкой</h3>
-              <div className="comparison-price">0-2 000 ₽</div>
+              <div className="comparison-price">0-{story.ins} ₽</div>
 
             </motion.div>
           </div>
@@ -51,8 +76,9 @@ const ComparisonPanel = ({ onNext }) => {
             Ты не избежал ситуации, но ты можешь уменьшить расходы
           </p>
         </div>
-        <img src={fall} />
+        <img src={story.img} />
       </div>
+      
 
     </div>
   );

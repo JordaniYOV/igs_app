@@ -63,26 +63,26 @@ class GroqClient:
     def generate(self, question: str, documents: list[dict] = None):
         """Answer generation using groq"""
       
-        # chat_completion = self.client.chat.completions.create(
-        #     messages=[
-        #         {
-        #             "role": "system", 
-        #             "content": self.system_prompt_builder(documents),
-        #         }, 
-        #         {
-        #             "role": "user", 
-        #             "content": f"{question}",
-        #         }
-        #     ], 
-        #     model=settings.GROQ_GENERATION_MODEL, 
+        chat_completion = self.client.chat.completions.create(
+            messages=[
+                {
+                    "role": "system", 
+                    "content": self.system_prompt_builder(documents),
+                }, 
+                {
+                    "role": "user", 
+                    "content": f"{question}",
+                }
+            ], 
+            model=settings.GROQ_GENERATION_MODEL, 
 
-        #     temperature=0.5, 
-        #     max_completion_tokens=1024, 
-        #     top_p=1,
-        #     stop=None, 
-        # )
+            temperature=0.5, 
+            max_completion_tokens=1024, 
+            top_p=1,
+            stop=None, 
+        )
     
-        # return chat_completion.choices[0].message.content
+        return chat_completion.choices[0].message.content
         return 'now working hehe'
 
 groq_client = GroqClient()

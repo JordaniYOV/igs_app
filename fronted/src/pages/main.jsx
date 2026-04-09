@@ -16,7 +16,14 @@ import AskPanel from '../panels/AskPanel.jsx';
 
 function App() {
     const [currentStep, setCurrentStep] = useState(0);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState(() => {
+        return Number(localStorage.getItem('selectedOption')) || 1;
+    });
+    // const [resetKey, setResetKey] = useState(0);
+
+     useEffect(() => {
+    localStorage.setItem('selectedOption', selectedOption);
+  }, [selectedOption]);
 
     const containerRef = useRef(null);
 
@@ -36,7 +43,6 @@ function App() {
     const handleNext = (stepIndex) => {
         if (stepIndex > currentStep) {
             setCurrentStep(stepIndex);
-            // Плавная прокрутка к новой панели
             setTimeout(() => {
                 const element = document.getElementById(`panel-${stepIndex}`);
                 if (element) {
@@ -46,14 +52,19 @@ function App() {
         }
     };
 
-    const handleOptionSelect = (option) => {
-        setSelectedOption(option);
-        handleNext(4); // Переход к панели страховки
-    };
-
+    const handleOptionSelect = () => {
+        if (selectedOption === 1) {
+            setSelectedOption(2);
+        } else if (selectedOption === 2) {
+            setSelectedOption(3)
+        } else if (selectedOption === 3) {
+            setSelectedOption(1)
+        }
+       location.reload();
+    }
     return (
         <div className="app" ref={containerRef}>
-            <div className="panels-container">
+            <div className="panels-container" id="pan-con" >
                 <AnimatePresence mode="wait">
                     {steps.map((step, index) => {
                         if (index > currentStep) return null;
@@ -74,6 +85,7 @@ function App() {
                                 }}
                             >
                                 <Component
+                        
                                     onNext={() => handleNext(index + 1)}
                                     onOptionSelect={handleOptionSelect}
                                     selectedOption={selectedOption}

@@ -70,17 +70,6 @@ const OptionsPanel = ({ onOptionSelect, onNext }) => {
           </div>
         </motion.div>
       ))}
-      <motion.button
-        className="btn-primary option-btn pulsing"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.6, type: "spring" }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        style={{ bottom: 120, left: 400}}
-      >
-        Посмотреть другое
-      </motion.button>
     </div>
   );
 };
