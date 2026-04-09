@@ -63,7 +63,6 @@ class VectorStore:
         top_k = top_k or settings.TOP_K_RETRIEVE
 
         query_embedding = embedding_service.embed_query(query)
-
         if query_embedding is None: 
             return []
         
@@ -79,7 +78,7 @@ class VectorStore:
             distance = results["distances"][0][i]
 
             similarity = 1 - distance
-
+            print(similarity)
             if similarity >= settings.MIN_SIMILARITY:
                 documents.append({
                     "content": results["documents"][0][i], 

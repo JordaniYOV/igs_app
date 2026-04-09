@@ -82,8 +82,7 @@ class GroqClient:
             stop=None, 
         )
     
-        return chat_completion.choices[0].message.content
-        return 'now working hehe'
+        return chat_completion.choices[0].message.content.replace("Уверенность", "").strip()
 
 groq_client = GroqClient()
 
