@@ -1,6 +1,15 @@
 from sentence_transformers import SentenceTransformer
 from ..config import settings
-import numpy as np
+
+from huggingface_hub import login
+
+hf_token = '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'
+if hf_token:
+    login(token=hf_token)
+    print("✅ Авторизован на HF Hub")
+
+# Затем загрузка модели
+from sentence_transformers import SentenceTransformer
 
 class EmbeddingService:
     model = None

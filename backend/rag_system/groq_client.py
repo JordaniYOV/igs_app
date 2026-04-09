@@ -1,5 +1,6 @@
 from urllib import response
 from annotated_types import Ge
+from fastapi import HTTPException
 from groq import Groq
 import groq
 from backend.config import settings
@@ -61,29 +62,28 @@ class GroqClient:
 
     def generate(self, question: str, documents: list[dict] = None):
         """Answer generation using groq"""
-        stream = self.client.chat.completions.create(
-            messages=[
-                {
-                    "role": "system", 
-                    "content": self.system_prompt_builder(),
-                }, 
-                {
-                    "role": "user", 
-                    "content": f"{question}",
-                }
-            ], 
-            model=settings.GROQ_GENERATION_MODEL, 
+      
+        # chat_completion = self.client.chat.completions.create(
+        #     messages=[
+        #         {
+        #             "role": "system", 
+        #             "content": self.system_prompt_builder(documents),
+        #         }, 
+        #         {
+        #             "role": "user", 
+        #             "content": f"{question}",
+        #         }
+        #     ], 
+        #     model=settings.GROQ_GENERATION_MODEL, 
 
-            temperature=0.5, 
-            max_completion_tokens=1024, 
-            top_p=1,
-            stop=None, 
-            stream=True,
-        )
-
-        for chunk in stream:
-            if chunk.choices[0].delta.content: 
-                yield chunk.choices[0].delta.content
+        #     temperature=0.5, 
+        #     max_completion_tokens=1024, 
+        #     top_p=1,
+        #     stop=None, 
+        # )
+    
+        # return chat_completion.choices[0].message.content
+        return 'now working hehe'
 
 groq_client = GroqClient()
 

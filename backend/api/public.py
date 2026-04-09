@@ -4,14 +4,19 @@ from ..rag_system.vectorestore import vectore_store
 
 router = APIRouter(tags=["user routes"])    
 
-@router.get("/igs/chat")
-async def ask_question(request: str):
+@router.post("/igs/chat")
+async def question(question: str):
     """Main endpoint for questions"""
-    relevant_docs = vectore_store.search(query=request)
+    relevant_docs = vectore_store.search(query=question)
 
-    answer = groq_client.generate(question=request, documents=relevant_docs)
+    answer = groq_client.generate(question=question, documents=relevant_docs)
 
+    if answer:
+        return {
+            "answer": answer,
+            "sources": relevant_docs
+        }
     return {
-        "answer": answer,
-        "retrieved_docs": relevant_docs
+            "answer": "not working hehe!!",
+            "sources": relevant_docs
     }

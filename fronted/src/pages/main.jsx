@@ -12,6 +12,7 @@ import ComparisonPanel from '../panels/ComparisonPanel.jsx';
 import SituationsPanel from '../panels/SituationsPanel.jsx';
 import ConditionsPanel from '../panels/ConditionsPanel.jsx';
 import FranchisePanel from '../panels/FranchisePanel.jsx';
+import AskPanel from '../panels/AskPanel.jsx';
 
 function App() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -28,7 +29,8 @@ function App() {
         { id: 'situations', component: SituationsPanel },
         { id: 'conditions', component: ConditionsPanel },
         { id: 'franchise', component: FranchisePanel },
-         { id: 'insurance', component: InsurancePanel },
+        { id: 'insurance', component: InsurancePanel },
+        {id: 'ask', component: AskPanel}
     ];
 
     const handleNext = (stepIndex) => {
