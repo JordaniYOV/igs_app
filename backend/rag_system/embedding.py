@@ -1,9 +1,11 @@
+import os
+
 from sentence_transformers import SentenceTransformer
 from ..config import settings
 
 from huggingface_hub import login
 
-hf_token = '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'
+hf_token = os.getenv('hf_token', '')
 if hf_token:
     login(token=hf_token)
     print("✅ Авторизован на HF Hub")

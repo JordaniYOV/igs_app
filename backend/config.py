@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     GROQ_GENERATION_MODEL: str = "llama-3.3-70b-versatile"
     EMBEDDING_MODEL: str = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
 
-    CHROMA_PERSIST_DIR: str = "./chroma_db"
+    CHROMA_PERSIST_DIR: str = ".backend/chroma_db"
     COLLECTION_NAME: str = "insurance_docs"
     TOP_K_RETRIEVE: int = 5
     MIN_SIMILARITY: float = 0.5
