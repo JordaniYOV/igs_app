@@ -42,7 +42,7 @@ const StoryPanel = ({ onNext, selectedOption }) => {
       img2: fightstart,
       bubble: cloud2,
       onimage: 'Долгожданные соревнования',
-       txt: {f: 'Ты убираешь телефон в карман', s: 'Карман рвется', t: 'Телефон выпадает и разбивается'},
+       txt: {f: 'Полуфинал - один на один', s: 'Секунда до победы', t: 'Вдруг удар... и руку пронзает боль'},
       choices: [
         { id: 'pocket', icon: svet, text: 'Уверен в успехе' },
         { id: 'rain', icon: book, text: 'Изучил тактику' },
