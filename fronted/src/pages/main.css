@@ -922,6 +922,12 @@ body {
     background: #f0f0f0;
 }
 
+.choose-btn {
+    background-color: white;
+    color: black;
+    width: 350px
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .story-panel {

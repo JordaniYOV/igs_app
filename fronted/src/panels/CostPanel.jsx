@@ -7,7 +7,7 @@ import cloud3 from '../assets/cloud3.svg'
 import panic from '../assets/panic.svg'
 import broken from '../assets/broken.svg'
 
-const CostPanel = ({ onNext, selectedOption, onOptionSelect}) => {
+const CostPanel = ({ onNext, selectedOption}) => {
 
   let story_let; 
   if (selectedOption === 1) { 
@@ -94,18 +94,6 @@ const CostPanel = ({ onNext, selectedOption, onOptionSelect}) => {
             <span>{story.cost}₽</span>
           </div>
         </motion.div>
-         <motion.button
-                className="btn-primary pulsing"
-                onClick={() => onOptionSelect()}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6, type: "spring" }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ bottom: -30}}
-              >
-                Посмотреть другое
-              </motion.button>
       </div>
     </div>
   );
